@@ -22,7 +22,7 @@ In short, Anno provides an abstraction to the processes of ticket reservations a
 <a href="http://anno.network/stratispreview" target="_blank">http://anno.network/stratispreview</a>
 
 ## API
-For the complete API documentation, please see <a href="https://documenter.getpostman.com/view/469639/anno-api/RVfyDW5V" target="_blank">Anno API Documentation</a>.
+For the complete API documentation, please see <a href="https://documenter.getpostman.com/view/469639/SWE56K4S" target="_blank">Anno API Documentation</a>.
 
 ## Why Use a Blockchain?
 The use of a blockchain enables direct payments from clients thus eliminating the need for a payment gateway, while also providing resilience to common failures found on centralized systems such as data loss or overselling. All bookings are safely recorded, and refunds are certain and processed with no delays. The blockchain can also avert the problem of overselling can tickets reselling where resellers buy a bulk of tickets (commonly in concerts) and resells for a higher price.
