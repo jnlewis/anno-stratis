@@ -408,7 +408,7 @@ public class AnnoStratisContract : SmartContract
         SetEventTier(eventTierUniqueId, eventTierData);
 
         //Transfer funds from customer account to event account
-        TransferToEscrow(customerAddress.ToString(), eventUniqueId, totalCost);
+        TransferToEscrow(eventUniqueId, customerAddress, totalCost);
 
         //Store ticket data in persistence
         for (int i = 0; i < ticketNumbers.Length; i++)
@@ -418,6 +418,91 @@ public class AnnoStratisContract : SmartContract
         }
         
         Log(new GenericLog() { Method = "BookEvent", Message = "Booking successful." });
+
+        return true;
+    }
+
+    /// <summary>
+    /// Temporary Alternative to the BookEvent method.
+    /// This one accepts a single ticket number instead of a list in order to reduce Gas usage and avoid exceeding Gas limits.
+    /// Multi tickets bookings must invoke this method several times.
+    /// </summary>
+    public bool BookEventV2(Address customerAddress, string eventUniqueId, string eventTierUniqueId, string ticketNumber)
+    {
+        /*
+         NOTE: 
+         Certain functionality has been commented out to limit gas usage in order to 
+         allow execution under default GasLimit of 100000 for Hackathon.
+         These has to be restored or optimized for gas usage.
+         */
+
+        ////Validate input
+        //if (customerAddress == null || eventUniqueId == null || eventTierUniqueId == null || ticketNumber == null)
+        //{
+        //    Log(new GenericLog() { Method = "BookEventV2", Message = "One or more required parameter is not specified." });
+        //    return false;
+        //}
+
+        //Get event
+        string eventData = GetEvent(eventUniqueId);
+        if (string.IsNullOrEmpty(eventData))
+        {
+            Log(new GenericLog() { Method = "BookEventV2", Message = "Unable to book. Event not found." });
+            return false;
+        }
+
+        //Get event tier
+        string eventTierData = GetEventTier(eventTierUniqueId);
+        if (string.IsNullOrEmpty(eventTierData))
+        {
+            Log(new GenericLog() { Method = "BookEventV2", Message = "Unable to book. Event tier not found." });
+            return false;
+        }
+
+        ////Validate event status
+        //if (GetDataValue(eventData, "status") != "Active")
+        //{
+        //    Log(new GenericLog() { Method = "BookEventV2", Message = "Unable to book. Event is not active." });
+        //    return false;
+        //}
+
+        ////Validate if event has already started
+        //if (CurrentTimestamp() > ulong.Parse(GetDataValue(eventData, "startDateTime")))
+        //{
+        //    Log(new GenericLog() { Method = "BookEventV2", Message = "Unable to book. Event has already started." });
+        //    return false;
+        //}
+
+        ////Validate if tickets are still available for the requested quantities
+        //uint availableTickets = uint.Parse(GetDataValue(eventTierData, "availableTickets"));
+        //if (availableTickets < 1)
+        //{
+        //    Log(new GenericLog() { Method = "BookEventV2", Message = "Unable to book. Insufficient available tickets for the requested quantity." });
+        //    return false;
+        //}
+
+        //Get booking cost
+        ulong pricePerTicket = ulong.Parse(GetDataValue(eventTierData, "price"));
+
+        //Check customer balance
+        ulong customerBalance = GetBalance(customerAddress);
+        if (customerBalance < pricePerTicket)
+        {
+            Log(new GenericLog() { Method = "BookEventV2", Message = $"Unable to book. Customer has insufficient funds." });
+            return false;
+        }
+
+        ////Update available tickets in storage
+        //eventTierData = SetDataValue(eventTierData, "availableTickets", (availableTickets - 1).ToString());
+        //SetEventTier(eventTierUniqueId, eventTierData);
+
+        //Transfer funds from customer account to event account
+        TransferToEscrow(eventUniqueId, customerAddress, pricePerTicket);
+
+        string ticketData = $"customerAddress:{customerAddress};eventUniqueId:{eventUniqueId};eventTierUniqueId:{eventTierUniqueId};paidPrice:{pricePerTicket};status:Active;";
+        SetTicket(ticketNumber, ticketData);
+
+        Log(new GenericLog() { Method = "BookEventV2", Message = "Booking successful." });
 
         return true;
     }
@@ -545,7 +630,7 @@ public class AnnoStratisContract : SmartContract
     /// <summary>
     /// Transfer native currency from an address to an event's escrow.
     /// </summary>
-    private bool TransferToEscrow(string eventUniqueId, string fromAddress, ulong amount)
+    private bool TransferToEscrow(string eventUniqueId, Address fromAddress, ulong amount)
     {
         if (amount == 0)
         {

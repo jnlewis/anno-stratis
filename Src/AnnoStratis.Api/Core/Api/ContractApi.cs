@@ -152,6 +152,17 @@ namespace Anno.Api.Core.Api
             this.InvokeContract("BookEvent", data);
         }
 
+        public void BookEventV2(string customerAddress, string eventUniqueId, string eventTierUniqueId, string ticketNumber)
+        {
+            dynamic data = new ExpandoObject();
+            data.customerAddress = customerAddress;
+            data.eventUniqueId = eventUniqueId;
+            data.eventTierUniqueId = eventTierUniqueId;
+            data.ticketNumber = ticketNumber;
+
+            this.InvokeContract("BookEventV2", data);
+        }
+
         public void RedeemTicket(string ticketNumber)
         {
             dynamic data = new ExpandoObject();

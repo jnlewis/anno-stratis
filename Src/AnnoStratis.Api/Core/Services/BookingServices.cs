@@ -152,7 +152,12 @@ namespace Anno.Api.Core.Services
                     .Where(x => x.Key == tier.TierId.Value)
                     .Select(x => x.Value).ToList();
 
-                blockchainContract.BookEvent(customer.CustomerAddress, eventInfo.EventUniqueId, tier.TierUniqueId, ticketNumbers);
+                // Update: Use BookEventV2 method on smart contract
+                //blockchainContract.BookEvent(customer.CustomerAddress, eventInfo.EventUniqueId, tier.TierUniqueId, ticketNumbers);
+                foreach (string number in ticketNumbers)
+                {
+                    blockchainContract.BookEventV2(customer.CustomerAddress, eventInfo.EventUniqueId, tier.TierUniqueId, number);
+                }
             }
 
             result = new BookEventResponse();
