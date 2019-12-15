@@ -1,0 +1,579 @@
+{
+	"info": {
+		"_postman_id": "9da548d6-c495-4664-a9c1-f6169ef43fa6",
+		"name": "AnnoStratis",
+		"description": "The API endpoints described here allows direct invocation of methods on the AnnoStratis Smart Contract.\n\n# Stratis Hackathon\nThis document is intended to support the evaluation for the Stratis Smart Contracts Challenge.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AnnoStratisContract",
+			"item": [
+				{
+					"name": "CreateHost",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"hostAddress\":\"Ca6hYit6PnhpV2sDcTrQdPbhwuMQn8CK2m\",\"hostName\":\"Airbnb\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/CreateHost",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"CreateHost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEvent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"eventUniqueId\":\"X1QBzO7byCWIOYHt\",\n\t\"hostAddress\":\"Ca6hYit6PnhpV2sDcTrQdPbhwuMQn8CK2m\",\n\t\"eventRefId\":\"EXP18001\",\n\t\"title\":\"EXP18001\",\n\t\"startDateTime\":1576368000,\n\t\"status\":\"Active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/CreateEvent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"CreateEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEventTier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"eventTierUniqueId\":\"sSng90YmnxrCbMAe\",\n\t\"hostAddress\":\"Ca6hYit6PnhpV2sDcTrQdPbhwuMQn8CK2m\",\n\t\"eventUniqueId\":\"X1QBzO7byCWIOYHt\",\n\t\"eventTierRefId\":\"EXP18001T01\",\n\t\"tierName\":\"Normal Admission\",\n\t\"totalTickets\":50,\n\t\"availableTickets\":50,\n\t\"price\":238\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/CreateEventTier",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"CreateEventTier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customerAddress\":\"CSqY46ZqK3qQZaNkDRfhXUCKez4AWQBK3u\",\n\t\"hostAddress\":\"Ca6hYit6PnhpV2sDcTrQdPbhwuMQn8CK2m\",\n\t\"customerRefId\":\"USER9000301\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/CreateCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"CreateCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TransferFrom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"from\":\"CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54\",\n\t\"to\":\"CSqY46ZqK3qQZaNkDRfhXUCKez4AWQBK3u\",\n\t\"amount\":1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/TransferFrom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"TransferFrom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookEventV2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customerAddress\":\"CSqY46ZqK3qQZaNkDRfhXUCKez4AWQBK3u\",\n\t\"eventUniqueId\":\"X1QBzO7byCWIOYHt\",\n\t\"eventTierUniqueId\":\"sSng90YmnxrCbMAe\",\n\t\"ticketNumber\":\"T29Y91J3Z6B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/BookEventV2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"BookEventV2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RedeemTicket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "GasPrice",
+								"type": "text",
+								"value": "100"
+							},
+							{
+								"key": "GasLimit",
+								"type": "text",
+								"value": "100000"
+							},
+							{
+								"key": "Amount",
+								"type": "text",
+								"value": "0"
+							},
+							{
+								"key": "FeeAmount",
+								"type": "text",
+								"value": "0.01"
+							},
+							{
+								"key": "WalletName",
+								"type": "text",
+								"value": "Hackathon_1"
+							},
+							{
+								"key": "WalletPassword",
+								"type": "text",
+								"value": "stratis"
+							},
+							{
+								"key": "Sender",
+								"type": "text",
+								"value": "CUtNvY1Jxpn4V4RD1tgphsUKpQdo4q5i54"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ticketNumber\":\"T29Y91J3Z6B\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:37223/api/contract/CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr/method/RedeemTicket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "37223",
+							"path": [
+								"api",
+								"contract",
+								"CH4Z7KLUdqY7sJKZcx37drVdgvv4DWzFRr",
+								"method",
+								"RedeemTicket"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6231add2-2a11-452f-8ee9-b6d5b5a6ca9b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a035722-2345-4dc3-8fea-e710fca48e39",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0e93f913-daab-4b8d-8b30-62ee859f4a29",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f18a680b-d978-44ae-8f8b-e6cedf2c10c4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
